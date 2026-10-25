@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jiaxi Mao · Earth Sciences, UCL</title>
+<meta name="description" content="Jiaxi Mao: Earth Sciences undergraduate at UCL working on machine learning for geothermal energy and environmental data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EEF1F0;
+    --ink: #1B2A33;
+    --muted: #55656E;
+    --rule: #C9D1D3;
+    --link: #1F6F78;
+    --heat-0: #2B1D4F;
+    --heat-1: #8C2981;
+    --heat-2: #DE4968;
+    --heat-3: #F7A13B;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #151E24; --ink: #E3E9EA; --muted: #9AAAB1; --rule: #2F3D45; --link: #6CC3CB;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 400 1.125rem/1.65 "Source Serif 4", Georgia, serif;
+  }
+  a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 2px; }
+
+  .page {
+    max-width: 960px; margin: 0 auto; padding: 0 24px 96px;
+    display: grid; grid-template-columns: 56px minmax(0, 1fr); column-gap: 48px;
+  }
+
+  /* Borehole strip: temperature rising with depth, the one bold element */
+  .bore { grid-row: 1 / span 20; position: relative; }
+  .bore-col {
+    position: sticky; top: 0; height: 100vh; padding-top: 0;
+    display: flex; gap: 8px;
+  }
+  .bore-bar {
+    width: 14px; height: 100%;
+    background: linear-gradient(to bottom, var(--heat-0) 0%, var(--heat-1) 38%, var(--heat-2) 68%, var(--heat-3) 100%);
+    transform-origin: top; animation: drill 1.4s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .bore-ticks {
+    list-style: none; margin: 0; padding: 0; height: 100%;
+    display: flex; flex-direction: column; justify-content: space-between;
+    font: 500 0.6875rem/1 "Archivo", sans-serif; font-stretch: 85%; color: var(--muted);
+    padding: 6px 0;
+  }
+  @keyframes drill { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @media (prefers-reduced-motion: reduce) { .bore-bar { animation: none; } }
+
+  header { padding: 112px 0 64px; }
+  h1, h2, h3 { font-family: "Archivo", sans-serif; font-stretch: 80%; line-height: 1.05; margin: 0; }
+  h1 { font-size: clamp(3rem, 9vw, 5.5rem); font-weight: 800; letter-spacing: -0.02em; }
+  .lede { max-width: 34em; margin: 28px 0 0; font-size: 1.3125rem; line-height: 1.55; }
+  .contact { margin: 24px 0 0; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 1rem; }
+
+  section { padding: 56px 0 0; }
+  h2 { font-size: 1.75rem; font-weight: 700; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+
+  .project { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 32px; padding: 36px 0; border-bottom: 1px solid var(--rule); }
+  .project h3 { font-size: 1.5rem; font-weight: 700; font-stretch: 85%; }
+  .project p { margin: 12px 0 0; max-width: 36em; }
+  .result { font-weight: 600; }
+  .stack { color: var(--muted); font-size: 0.9375rem; }
+  .project img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); background: #fff; }
+  .project figcaption { font-size: 0.8125rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+  figure { margin: 0; }
+
+  .about p { max-width: 36em; margin: 20px 0 0; }
+  dl.skills { display: grid; grid-template-columns: max-content 1fr; gap: 10px 28px; margin: 24px 0 0; font-size: 1rem; }
+  dl.skills dt { font-family: "Archivo", sans-serif; font-weight: 600; font-stretch: 85%; }
+  dl.skills dd { margin: 0; color: var(--muted); }
+
+  footer { padding-top: 72px; font-size: 0.875rem; color: var(--muted); }
+
+  @media (max-width: 720px) {
+    .page { grid-template-columns: 14px minmax(0, 1fr); column-gap: 18px; padding: 0 16px 64px; }
+    .bore-ticks { display: none; }
+    .bore-col { gap: 0; }
+    .bore-bar { width: 8px; }
+    header { padding: 64px 0 40px; }
+    .project { grid-template-columns: 1fr; gap: 20px; }
+    .project figure { max-width: 360px; }
+    dl.skills { grid-template-columns: 1fr; gap: 2px; }
+    dl.skills dd { margin-bottom: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="bore" aria-hidden="true">
+    <div class="bore-col">
+      <div class="bore-bar"></div>
+      <ol class="bore-ticks"><li>0&nbsp;m</li><li>1&nbsp;km</li><li>2&nbsp;km</li><li>3&nbsp;km</li><li>4&nbsp;km</li></ol>
+    </div>
+  </div>
+
+  <header>
+    <h1>Jiaxi Mao</h1>
+    <p class="lede">Earth Sciences undergraduate at University College London. I use machine learning on geoscience and environmental data, especially to understand where the subsurface could supply clean geothermal heat.</p>
+    <p class="contact">
+      <a href="mailto:maojiaxi2023@163.com">Email</a>
+      <a href="https://github.com/JiaxiMao">GitHub</a>
+      <a href="cv.pdf">CV (PDF)</a>
+    </p>
+  </header>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Projects</h2>
+
+    <article class="project">
+      <div>
+        <h3>Predicting subsurface temperature across Great Britain</h3>
+        <p>Using the BGS Digital Geothermal Catalogue, I modelled 5,367 equilibrium temperature measurements from 108 boreholes. Whole 50&nbsp;km regions were held out to test how the model performs in places it has never seen.</p>
+        <p class="result">Gradient boosting reached a mean error of 2.64&nbsp;°C (R²&nbsp;0.945), 29% lower than a linear geothermal-gradient baseline.</p>
+        <p class="stack">Python, scikit-learn, pandas, spatial cross-validation</p>
+        <p><a href="https://github.com/JiaxiMao/gb-geothermal-temperature-ml">Code and write-up on GitHub</a></p>
+      </div>
+      <figure>
+        <img src="assets/geothermal.png" alt="Scatter plot of predicted against observed temperature on held-out regions, points close to the one-to-one line" width="1200" height="1029" loading="lazy">
+        <figcaption>Predicted vs observed temperature on held-out regions.</figcaption>
+      </figure>
+    </article>
+
+    <article class="project">
+      <div>
+        <h3>Mapping and predicting PM₂.₅ across London</h3>
+        <p>I combined GLA air-quality, traffic and green-cover data on a 500&nbsp;m grid (6,670 cells), then compared linear regression, random forest and XGBoost on held-out 5&nbsp;km blocks.</p>
+        <p class="result">XGBoost explained 60% of the spatial variation in held-out areas. Road exposure was the strongest predictor and green cover was negatively associated with PM₂.₅.</p>
+        <p class="stack">Python, GeoPandas, XGBoost, scikit-learn, GIS</p>
+        <p><a href="https://github.com/JiaxiMao/london-pm25-ml">Code and write-up on GitHub</a></p>
+      </div>
+      <figure>
+        <img src="assets/pm25.png" alt="Map of Greater London showing predicted PM2.5, highest in the centre" width="1200" height="1093" loading="lazy">
+        <figcaption>XGBoost prediction surface for Greater London.</figcaption>
+      </figure>
+    </article>
+  </section>
+
+  <section class="about" id="about" aria-labelledby="about-h">
+    <h2 id="about-h">About</h2>
+    <p>I study Earth Sciences at UCL and am applying for master's programmes in geo-energy and data science for 2027 entry. I am most interested in how data-driven methods can reduce the uncertainty of geothermal exploration.</p>
+    <p>I speak English and Mandarin Chinese.</p>
+    <dl class="skills">
+      <dt>Programming</dt><dd>Python (pandas, NumPy, scikit-learn, XGBoost, matplotlib), Jupyter, Git</dd>
+      <dt>Geospatial</dt><dd>GeoPandas, Shapely, coordinate systems (EPSG:27700), raster and vector aggregation</dd>
+      <dt>Methods</dt><dd>Regression, tree ensembles, spatial cross-validation, exploratory data analysis</dd>
+    </dl>
+  </section>
+
+  <footer>
+    <p>Last updated October 2026.</p>
+  </footer>
+</div>
+</body>
+</html>
